@@ -3,13 +3,12 @@ package com.robertmcdermot.starvoyager;
 import android.app.Application;
 
 import com.google.sample.castcompanionlibrary.cast.DataCastManager;
-import com.google.sample.castcompanionlibrary.utils.Utils;
 
 public class CastApplication extends Application
 {
+	static String namespace = "urn:x-cast:com.robertmcdermot.starvoyager";
 	private static String sApplicationId;
-	private static DataCastManager sCastMgr = null;
-	public static final double VOLUME_INCREMENT = 0.05;
+	private static DataCastManager castManager = null;
 
 	@Override
 	public void onCreate()
@@ -17,14 +16,12 @@ public class CastApplication extends Application
 		super.onCreate();
 		sApplicationId = getString(R.string.app_id);
 		initializeCastManager();
-		Utils.saveFloatToPreference(getApplicationContext(),
-				DataCastManager.PREFS_KEY_VOLUME_INCREMENT, (float) VOLUME_INCREMENT);
 	}
 
 	private void initializeCastManager()
 	{
-		sCastMgr = DataCastManager.initialize(getApplicationContext(), sApplicationId, null, null);
-		sCastMgr.enableFeatures(
+		castManager = DataCastManager.initialize(getApplicationContext(), sApplicationId, namespace);
+		castManager.enableFeatures(
 				DataCastManager.FEATURE_NOTIFICATION |
 						DataCastManager.FEATURE_LOCKSCREEN |
 						DataCastManager.FEATURE_WIFI_RECONNECT |
@@ -33,10 +30,10 @@ public class CastApplication extends Application
 
 	public static DataCastManager getCastManager()
 	{
-		if(sCastMgr == null)
+		if(castManager == null)
 		{
 			throw new IllegalStateException("Application has not been started");
 		}
-		return sCastMgr;
+		return castManager;
 	}
 }

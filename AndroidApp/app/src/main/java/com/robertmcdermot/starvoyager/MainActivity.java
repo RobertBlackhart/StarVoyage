@@ -5,13 +5,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.google.sample.castcompanionlibrary.cast.BaseCastManager;
 import com.google.sample.castcompanionlibrary.cast.DataCastManager;
+import com.google.sample.castcompanionlibrary.cast.exceptions.NoConnectionException;
+import com.google.sample.castcompanionlibrary.cast.exceptions.TransientNetworkDisconnectionException;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends ActionBarActivity
 {
 	DataCastManager castManager;
+	Gson gson = new Gson();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -27,6 +37,21 @@ public class MainActivity extends ActionBarActivity
 		if(toolbar != null)
 		{
 			setSupportActionBar(toolbar);
+		}
+	}
+
+	public void sendRole(View v)
+	{
+		String role = ((TextView)v).getText().toString();
+		Map<String,String> map = new HashMap<>();
+		map.put("roleChoice",role);
+		try
+		{
+			castManager.sendDataMessage(gson.toJson(map), CastApplication.namespace);
+		}
+		catch(IOException | TransientNetworkDisconnectionException | NoConnectionException e)
+		{
+			e.printStackTrace();
 		}
 	}
 
