@@ -1,0 +1,3 @@
+[submodule "AndroidApp/CastCompanionLibrary"]
+	path = AndroidApp/CastCompanionLibrary
+	url = https://github.com/googlecast/CastCompanionLibrary-android.git
