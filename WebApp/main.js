@@ -61,6 +61,6 @@ function displayText(text)
     var json = JSON.parse(text);
     role = json['roleChoice'];
     console.log('choicetext: ' + role);
-    document.getElementById("message").innerHTML+=role+"was chosen";
+    document.getElementById("message").innerHTML = role+" was chosen";
     //window.castReceiverManager.setApplicationState(text);
 };
