@@ -59,7 +59,8 @@ function displayText(text)
 {
     console.log(text);
     var json = JSON.parse(text);
-    console.log('choicetext: ' + json['roleChoice']);
-    document.getElementById("message").innerHTML+=text+"was chosen";
-    window.castReceiverManager.setApplicationState(text);
+    role = json['roleChoice'];
+    console.log('choicetext: ' + role);
+    document.getElementById("message").innerHTML+=role+"was chosen";
+    //window.castReceiverManager.setApplicationState(text);
 };
