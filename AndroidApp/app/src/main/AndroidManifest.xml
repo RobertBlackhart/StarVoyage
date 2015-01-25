@@ -26,6 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TacticalActivity"
+            android:label="@string/title_activity_tactical"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.robertmcdermot.starvoyager.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

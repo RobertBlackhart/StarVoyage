@@ -14,6 +14,7 @@ public class CastApplication extends Application
 	public void onCreate()
 	{
 		super.onCreate();
+
 		sApplicationId = getString(R.string.app_id);
 		initializeCastManager();
 	}

@@ -9,4 +9,9 @@
     <color name="secondary_text">#727272</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
+    <color name="panelPurple">#CC99CC</color>
+    <color name="panelBlue">#9999FF</color>
+    <color name="panelRed">#D06969</color>
+    <color name="panelGold">#FF9900</color>
+    <color name="panelSalmon">#FF9966</color>
 </resources>

@@ -4,12 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="@color/primary" />
+        layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/instructions"
@@ -42,6 +39,7 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:background="#ff0000"
+                android:textColor="#000"
                 android:text="Captain"
                 android:onClick="sendRole"/>
 
@@ -53,6 +51,7 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:background="#ffff00"
+                android:textColor="#000"
                 android:text="Engineer"
                 android:onClick="sendRole"/>
 
@@ -72,18 +71,20 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:background="#ffff00"
+                android:textColor="#000"
                 android:text="Tactical"
                 android:onClick="sendRole"/>
 
             <TextView
-                android:id="@+id/counselor"
+                android:id="@+id/science"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:background="#0000ff"
-                android:text="Counselor"
+                android:textColor="#000"
+                android:text="Science"
                 android:onClick="sendRole"/>
 
         </LinearLayout>
